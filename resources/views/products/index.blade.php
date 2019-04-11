@@ -1,5 +1,13 @@
-<h1>hello</h1>
+@extends('layouts.app')
 
+
+
+
+@section('content')
+
+
+
+<a href ="{{url('products/create')}}">create product</a>
 <table border="1">
 
 
@@ -15,6 +23,7 @@
 
 </tr>
 
+<tr>
 <?php foreach($products as $product){?>
 
 <td> <?php echo $product->id;?></td>
@@ -24,5 +33,10 @@
 <td> <?php echo $product->price;?></td>
 
 <?php }?>
-
+</tr>
 </table>
+@endsection
+
+<!-- @section('content1')
+<h1>hello</h1>
+@endsection -->
