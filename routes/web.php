@@ -24,3 +24,9 @@ Route::get('products', 'ProductsController@index')->name('product');
 
 Route::get('products/create','ProductsController@create');
 Route::post('products','ProductsController@store');
+Route::get('products/{product}/edit','ProductsController@edit');
+Route::patch('products/{product}','ProductsController@update');
+
+Route::delete('products/{product}', 'ProductsController@destroy');
+
+Route::get('products/index','ProductsController@index');
