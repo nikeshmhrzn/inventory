@@ -25,11 +25,15 @@
 
 
 @section('contents')
+
 <div class="jumbotron">
         <!-- <h5>helo this is jumbotron division.<h5> -->
         <h3><a href ="{{url('products/index')}}">product</a></h3>
 
+        <h3><a href ="{{url('categories/index')}}">Category</a></h3>
+
 
 </div>
+
 
 @endsection

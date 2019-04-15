@@ -1,46 +1,49 @@
 @extends('layouts.app')
-
 @section('content')
 
 <div class="container">
+<form action="{{url('products/'.$product->id)}}" method ="POST"  >
+          <h2>Edit Product Form</h2>
 
-<form action="{{url('products/'.$product->id)}}" method ="POST">
-<h2>edit product</h2>
-        @csrf
+                @csrf
             @method('patch')
 
-<div class="form-group">
+	<div class="form-group" style="font-size:18px;"> <!-- Name field -->
+		<label class="control-label " for="name">Name</label>
+		<input class="form-control" id="name" name="name" type="text"  value="{{$product->name}}" required style="font-size:19px;"/>
+	</div>
+	
+	<div class="form-group" style="font-size:18px;"> <!-- Description field -->
+		<label class="control-label requiredField" for="description">Description</label>
+		<input class="form-control" id="description" name="description" type="text" value="{{$product->description}}" required style="font-size:19px;"/>
+	</div>
 
-        <label for="name">Name</label>
-        <input type="text" name="name" value="{{$product->name}}">
-        </div>
+        <div class="form-group" style="font-size:18px;"> <!-- Message field -->
+		<label class="control-label " for="category">Category</label>
+    <!-- <input class="form-control" id="category" name="category_id" type="number" value="{{$product->category_id}}" required style="font-size:19px;"/>		 -->
 
-
-<div class="form-group">
-
-<label for="description">Description</label>
-<input type="text" name="description" value="{{$product->description}}">
+		<select name="category_id">
+		 
+		 @foreach($categories as $category)
+		 <option value="{{$category->id}}"
+		 @if($category->id == $product->category_id) selected="selected"
+		 @endif
+		 >{{$category->name}}
+		 
+		 </option>
+		 @endforeach
+		 </select>
+	</div>
+	
+	<div class="form-group" style="font-size:18px;"> <!-- Subject field -->
+		<label class="control-label " for="price">Price</label>
+		<input class="form-control" id="price" name="price" type="number" value="{{$product->price}}" required style="font-size:19px;"/>
+	</div>
+	
+	<div class="form-group">
+		<button class="btn btn-primary " name="save" type="submit" value="save">Save</button>
+	</div>
+	
+</form>	
 </div>
-
-<div class="form-group">
-
-<label for="price">Price</label>
-<input type="number" name="price" value="{{$product->price}}">
-</div>
-
-
-<div class="form-group">
-
-<label for="price">category</label>
-<input type="number" name="category_id" value="{{$product->category_id}}">
-</div>
-
-<div class="form-group">
-<input type="submit" value="save">
-</div>
-</form>
-
-</div>
-
-<!-- <h4>this is crerate file of products</h4> -->
 @endsection

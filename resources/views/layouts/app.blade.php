@@ -40,16 +40,33 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            <li class="nav-item" style="font-size:21px;">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item" style="font-size:21px;">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+                            <!-- here -->
+                            <!-- <h3><a href ="{{url('categories')}}">create categories</a></h3>
+                             -->
+
+                             
+
                         @else
-                            <li class="nav-item dropdown">
+                        <li>
+                        <a class="nav-link" href="{{url('categories')}}">Categories</a>
+                        </li>
+
+
+                        <li>
+                        <a class="nav-link" href="{{url('products')}}">Products</a>
+                        </li>
+
+
+                        <!-- <h3><a href ="{{url('products/index')}}">product</a></h3> -->
+                            <li class="nav-item dropdown" style="font-size:21px;">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
